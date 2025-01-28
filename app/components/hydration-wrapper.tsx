@@ -20,7 +20,7 @@ const HydrationWrapper = ({
     // in a real-world application
     const timer = setTimeout(() => {
       setHydrated(true);
-    }, 300);
+    }, 400);
     return () => clearTimeout(timer);
   }, []);
 

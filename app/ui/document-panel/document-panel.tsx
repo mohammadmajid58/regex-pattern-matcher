@@ -26,7 +26,7 @@ const DocumentPanel = () => {
   return (
     <>
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-semibold mb-4">Document:</h2>
+        <h2 className="text-2xl mb-2">Document:</h2>
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded-md"
           onClick={generateNewDocument}
