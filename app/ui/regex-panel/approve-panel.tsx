@@ -1,9 +1,19 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
+
+import SelectPattern from "./components/approve/select-pattern";
+import { ListMatches } from "./components/approve/list-matches";
 
 const ApprovePanel = () => {
-  return <div>Approve</div>;
+  const [selectedPatternId, setSelectedPatternId] = useState("");
+
+  return (
+    <div className="space-y-4">
+      <SelectPattern setSelectedPatternId={setSelectedPatternId} />
+      {selectedPatternId && <ListMatches patternId={selectedPatternId} />}
+    </div>
+  );
 };
 
 export { ApprovePanel };

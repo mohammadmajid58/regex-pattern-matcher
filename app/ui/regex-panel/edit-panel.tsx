@@ -6,7 +6,7 @@ import { ListPatterns } from "./components/edit/list-patterns";
 
 const EditPanel = () => {
   return (
-    <div>
+    <div className="space-y-4">
       <ListPatterns />
       <AddPattern />
     </div>
