@@ -17,6 +17,7 @@ interface State {
 type Actions = {
   setDocumentText: (documentText: string) => void;
   setViewMode: (viewMode: ViewMode) => void;
+  getPatternById: (id: string) => RegexPattern | undefined;
   createPattern: (expression: string) => boolean;
   updatePattern: (pattern: RegexPattern) => boolean;
   deletePattern: (id: string) => void;
@@ -29,19 +30,22 @@ const useRegexStore = create<State & Actions>()(
     persist(
       (set, get) => ({
         documentText: "",
-        viewMode: "edit",
-        patterns: [],
-        matches: [],
+        viewMode: "edit" as ViewMode,
+        patterns: [] as RegexPattern[],
+        matches: [] as RegexMatch[],
         setDocumentText: (newText) => {
           set((state) => {
             state.documentText = newText;
-            state.matches = [];
           });
+          get().refreshMatches();
         },
         setViewMode: (newMode) => {
           set((state) => {
             state.viewMode = newMode;
           });
+        },
+        getPatternById: (id) => {
+          return get().patterns.find((p: RegexPattern) => p.id === id);
         },
         createPattern: (expression) => {
           const valid = verifyRegexExpression(expression);
@@ -50,6 +54,7 @@ const useRegexStore = create<State & Actions>()(
               state.patterns.push({
                 id: generateId(),
                 expression: expression,
+                error: null,
               });
             });
             get().refreshMatches();
@@ -96,9 +101,12 @@ const useRegexStore = create<State & Actions>()(
             );
 
             // Generate new matches
-            const newMatches = state.patterns.flatMap((pattern: RegexPattern) =>
-              generateRegexMatches(pattern, text)
-            );
+            const newMatches: RegexMatch[] = [];
+            state.patterns.forEach((pattern, index) => {
+              const result = generateRegexMatches(pattern, text);
+              state.patterns[index].error = result.error ?? null;
+              newMatches.push(...result.matches);
+            });
 
             state.matches = approvedMatches.concat(newMatches);
           });

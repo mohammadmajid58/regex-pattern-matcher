@@ -1,6 +1,7 @@
 interface RegexPattern {
   id: string;
   expression: string;
+  error: string | null;
 }
 
 type MatchStatus = "pending" | "approved";

@@ -17,7 +17,7 @@ const DocumentPanel = () => {
       setNewText();
     } else {
       const confirm = window.confirm(
-        "Are you sure you want to generate a new document? Your current document, both pending and approved regex matches will be lost."
+        "Are you sure you want to generate a new document? Your current document and unapproved regex matches will be lost."
       );
       if (confirm) setNewText();
     }
