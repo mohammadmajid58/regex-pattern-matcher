@@ -35,6 +35,7 @@ const useRegexStore = create<State & Actions>()(
         setDocumentText: (newText) => {
           set((state) => {
             state.documentText = newText;
+            state.matches = [];
           });
         },
         setViewMode: (newMode) => {

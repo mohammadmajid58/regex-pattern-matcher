@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      lorem-ipsum:
+        specifier: ^2.0.8
+        version: 2.0.8
       next:
         specifier: 15.1.6
         version: 15.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -22,7 +25,7 @@ importers:
         version: 11.0.5
       zustand:
         specifier: ^5.0.3
-        version: 5.0.3(@types/react@19.0.8)(react@19.0.0)
+        version: 5.0.3(@types/react@19.0.8)(immer@10.1.1)(react@19.0.0)
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -42,6 +45,9 @@ importers:
       eslint-config-next:
         specifier: 15.1.6
         version: 15.1.6(eslint@9.19.0(jiti@1.21.7))(typescript@5.7.3)
+      immer:
+        specifier: ^10.1.1
+        version: 10.1.1
       postcss:
         specifier: ^8
         version: 8.5.1
@@ -565,6 +571,10 @@ packages:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
     engines: {node: '>= 6'}
 
+  commander@9.5.0:
+    resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
+    engines: {node: ^12.20.0 || >=14}
+
   concat-map@0.0.1:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
 
@@ -943,6 +953,9 @@ packages:
     resolution: {integrity: sha512-hsBTNUqQTDwkWtcdYI2i06Y/nUBEsNEDJKjWdigLvegy8kDuJAS8uRlpkkcQpyEXL0Z/pjDy5HBmMjRCJ2gq+g==}
     engines: {node: '>= 4'}
 
+  immer@10.1.1:
+    resolution: {integrity: sha512-s2MPrmjovJcoMaHtx6K11Ra7oD05NT97w1IC5zpMkT6Atjr7H8LjaDd81iIxUYpMKSRRNMJE703M1Fhr/TctHw==}
+
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
     engines: {node: '>=6'}
@@ -1136,6 +1149,11 @@ packages:
 
   loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
+    hasBin: true
+
+  lorem-ipsum@2.0.8:
+    resolution: {integrity: sha512-5RIwHuCb979RASgCJH0VKERn9cQo/+NcAi2BMe9ddj+gp7hujl6BI+qdOG4nVsLDpwWEJwTVYXNKP6BGgbcoGA==}
+    engines: {node: '>= 8.x', npm: '>= 5.x'}
     hasBin: true
 
   lru-cache@10.4.3:
@@ -2212,6 +2230,8 @@ snapshots:
 
   commander@4.1.1: {}
 
+  commander@9.5.0: {}
+
   concat-map@0.0.1: {}
 
   cross-spawn@7.0.6:
@@ -2744,6 +2764,8 @@ snapshots:
 
   ignore@5.3.2: {}
 
+  immer@10.1.1: {}
+
   import-fresh@3.3.0:
     dependencies:
       parent-module: 1.0.1
@@ -2947,6 +2969,10 @@ snapshots:
   loose-envify@1.4.0:
     dependencies:
       js-tokens: 4.0.0
+
+  lorem-ipsum@2.0.8:
+    dependencies:
+      commander: 9.5.0
 
   lru-cache@10.4.3: {}
 
@@ -3607,7 +3633,8 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zustand@5.0.3(@types/react@19.0.8)(react@19.0.0):
+  zustand@5.0.3(@types/react@19.0.8)(immer@10.1.1)(react@19.0.0):
     optionalDependencies:
       '@types/react': 19.0.8
+      immer: 10.1.1
       react: 19.0.0
