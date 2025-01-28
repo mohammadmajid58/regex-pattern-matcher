@@ -27,7 +27,25 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <main className="min-h-screen bg-gray-50 p-4">
+          <h1 className="text-3xl text-center mt-3 mb-3">
+            Welcome to Regex Pattern Matcher!
+          </h1>
+          <p className="text-center text-gray-600 mb-6 w-4/5 mx-auto">
+            This is a simple regex pattern matcher built with Next.js, Zustand
+            and Tailwind CSS.
+            <br />
+            This tool helps you create and test regex patterns against sample
+            lorem-ipsum documents. In Edit mode, you can add new patterns,
+            modify existing patterns, or remove unwanted patterns. In Approve
+            mode, you can review and approve pattern matches. The right panel
+            displays a sample document that you can use to test your patterns in
+            real-time, you can re-generate this anytime. When you update the
+            document or patterns, the matches are recalculated and displayed in
+            Approve mode.
+          </p>
+          {children}
+        </main>
       </body>
     </html>
   );
