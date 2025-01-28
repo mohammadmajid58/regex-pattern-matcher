@@ -9,13 +9,17 @@ const DocumentPanel = () => {
   const documentText = useRegexStore((state) => state.documentText);
   const setDocumentText = useRegexStore((state) => state.setDocumentText);
 
-  const generateText = () => {
-    const confirm = window.confirm(
-      "Are you sure you want to generate a new document? Your current document and regex matches will be lost."
-    );
-    if (confirm) {
-      const newText = lorem.generateParagraphs(7);
-      setDocumentText(newText);
+  const setNewText = () => setDocumentText(lorem.generateParagraphs(7));
+
+  const generateNewDocument = () => {
+    // No need to confirm if there is no text
+    if (documentText === "") {
+      setNewText();
+    } else {
+      const confirm = window.confirm(
+        "Are you sure you want to generate a new document? Your current document, both pending and approved regex matches will be lost."
+      );
+      if (confirm) setNewText();
     }
   };
 
@@ -25,7 +29,7 @@ const DocumentPanel = () => {
         <h2 className="text-2xl font-semibold mb-4">Document:</h2>
         <button
           className="bg-blue-500 text-white px-4 py-2 rounded-md"
-          onClick={generateText}
+          onClick={generateNewDocument}
         >
           Generate new document
         </button>
