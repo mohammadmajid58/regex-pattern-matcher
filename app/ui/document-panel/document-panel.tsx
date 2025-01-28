@@ -2,6 +2,7 @@
 
 import { useRegexStore } from "@/app/store/store";
 import { LoremIpsum } from "lorem-ipsum";
+import { DocumentPanelSkeleton } from "./document-panel-skeleton";
 
 const lorem = new LoremIpsum();
 
