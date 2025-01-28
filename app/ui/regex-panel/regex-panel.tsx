@@ -1,7 +1,12 @@
 import React from "react";
+import { ModeSelector } from "./components/mode-selector";
 
 const RegexPanel = () => {
-  return <div>Regex Panel</div>;
+  return (
+    <div>
+      <ModeSelector />
+    </div>
+  );
 };
 
 export { RegexPanel };
